@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Lyrics</title>
+    <style>
+        body {
+            background-image:  url("/photos/I\ Love\ You\ Hearts\ GIF\ by\ Saskia\ Keultjes.gif");
+            background-size: cover;
+            color:black;
+            font-family: "Courier New", Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-weight: bolder;
+        }
+
+
+        #lyrics {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 80%;
+            margin-bottom: 2rem;
+        }
+
+        #heart {
+            display: none;
+            font-size: 6rem;
+            text-align: center;
+            color:black;
+            margin-top: 1rem;
+        }
+
+        #heart p {
+            display: block;
+        }
+
+        /* #heart div {
+            height: 200px;
+            width: 200px;
+            background-image: url("/photos/love\ gif.gif");
+            display: block;
+        } */
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="lyrics"></div>
+    <div id="heart">
+        <p>You Are My Orange 🍊</p>
+        <!-- <div class="GIF"></div> -->
+    </div>
+    <script>
+        const lyricsData = [
+            { text: "Your morning eyes👀, I could stare like watching stars🌟", delayLine: 800, delayChar: 90 }, //delaychar 40    ++      👀,🌟
+            { text: "I could walk you by, and I'll tell without a thought🤔", delayLine: 650, delayChar: 110 }, //delaychar 50    ++      🤔
+            { text: "You'd be mine🫶🏻, would you mind if I took your hand tonight?🫴🏻", delayLine: 600, delayChar: 90 }, //delaychar 30    ++     🫶🏻,🫴🏻
+            { text: "Know you're all that I want this life💌", delayLine: 400, delayChar: 80 }, //delaychar 60    ++      💌
+            { text: "🫵🏻🦋💖", delayLine: 2000, delayChar: 100 }, //delayLine: 300 delaychar 0    ++    delayLine: 2000, delayChar: 900
+            { text: "😘😘😘😘😘😘", delayLine: 1600, delayChar: 0 }, //delayLine: 500 delaychar 70    ++    delayLine: 2000, delayChar: 900
+            { text: "I'll imagine we fell in love💘", delayLine: 700, delayChar: 40 }, // delayLine: 700, delayChar: 40    ++     💘
+            { text: "I'll nap under moonlight🌙 skies with you🌌🫴🏻", delayLine: 900, delayChar: 50 }, //delayLine: 600  delaychar 35    ++        🌙,🌌🫴🏻
+            { text: "I think I'll picture us👩‍❤‍👨, you with the waves🌊", delayLine: 60, delayChar: 45 },  //delayLine: 500    ++      👩‍❤‍👨,🌊
+            { text: "The ocean's colors on your face🥰", delayLine: 400, delayChar: 100 }, // delayLine: 400, delayChar: 50    ++     🥰
+            { text: "I'll leave my heart❤ with your air🌬", delayLine: 500, delayChar: 80 },// delayLine: 500, delayChar: 40    ++     ❤,🌬
+            { text: "So let me fly with you🕊", delayLine: 600, delayChar: 130 }, // delayLine: 600, delayChar: 30    ++      🕊
+            { text: "Will you🦋 be forever with me?🫴🏻", delayLine: 700, delayChar: 130 }, // delayLine: 700, delayChar: 50    ++        🦋,🫴🏻
+            { text: "💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝💘💝", delayLine: 28400, delayChar: 0 }, // delayLine: 300, delayChar: 0    ++
+            { text: "My love💝 will always stay by you💘💌", delayLine: 600, delayChar: 100 }, // delayLine: 700, delayChar: 35        💝,💘💌
+            { text: "I'll keep it safe💌, so don't you worry a thing🐢😌", delayLine: 1000, delayChar: 110 }, // delayLine: 500, delayChar: 40      💌,🐢😌
+            { text: "I'll tell you I love you more👩‍❤‍👨", delayLine: 600, delayChar: 90 }, // delayLine: 600, delayChar: 30      👩‍❤‍👨
+            { text: "It's stuck with you forever♾, so promise you won't let it go🫳🏻", delayLine: 600, delayChar: 70 }, // delayLine: 500, delayChar: 45        ♾,🫳🏻
+            { text: "I'll trust the universe🌌 will always bring me to you💘🫵🏻", delayLine: 2000, delayChar: 80 }, // delayLine: 700, delayChar: 50        🌌,💘🫵🏻
+            { text: "", delayline: 4000, delaychar:0},
+            { text: "I'll imagine we fell in love💘", delayLine: 700, delayChar: 60 }, // delayLine: 700, delayChar: 40    ++     💘
+            { text: "I'll nap under moonlight🌙 skies with you🌌🫴🏻", delayLine: 900, delayChar: 50 }, //delayLine: 600  delaychar 35    ++        🌙,🌌🫴🏻
+            { text: "I think I'll picture us👩‍❤‍👨, you with the waves🌊", delayLine: 60, delayChar: 45 },  //delayLine: 500    ++      👩‍❤‍👨,🌊
+            { text: "The ocean's colors on your face🥰", delayLine: 400, delayChar: 100 }, // delayLine: 400, delayChar: 50    ++     🥰
+            { text: "I'll leave my heart❤ with your air🌬", delayLine: 500, delayChar: 80 },// delayLine: 500, delayChar: 40    ++     ❤,🌬
+            { text: "So let me fly with you🕊", delayLine: 600, delayChar: 130 }, // delayLine: 600, delayChar: 30    ++      🕊
+            { text: "Will you🦋 be forever with me?🫴🏻", delayLine: 700, delayChar: 130 }, // delayLine: 700, delayChar: 50    ++        🦋,🫴🏻
+        ];
+
+        const lyricsContainer = document.getElementById("lyrics");
+        const heartContainer = document.getElementById("heart");
+
+        async function typewriterEffect(text, delayChar) {
+            for (const char of text) {
+                const span = document.createElement("span");
+                span.textContent = char;
+                lyricsContainer.appendChild(span);
+                await new Promise((resolve) => setTimeout(resolve, delayChar));
+            }
+            const br = document.createElement("br");
+            lyricsContainer.appendChild(br);
+        }
+
+        async function displayLyrics() {
+            for (const { text, delayLine, delayChar } of lyricsData) {
+                await typewriterEffect(text, delayChar);
+                await new Promise((resolve) => setTimeout(resolve, delayLine));
+            }
+
+            // Show the heart animation after the lyrics
+            heartContainer.style.display = "block";
+            heartContainer.classList.add("fade-in");
+        }
+
+        displayLyrics();
+    </script>
+</body>
+</html>
